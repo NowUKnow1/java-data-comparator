@@ -1,29 +1,34 @@
 package hexlet.code;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 public class Comparator {
-    public static Map<String, String> genDiff(Map<String, Object> firstDictionary, Map<String, Object> secondDictionary) {
-        Map<String, String> result = new LinkedHashMap<>();
-        Set<String> keys = new TreeSet<>();
-        keys.addAll(firstDictionary.keySet());
-        keys.addAll(secondDictionary.keySet());
-        for (String key : keys) {
-            if (firstDictionary.containsKey(key) && secondDictionary.containsKey(key)) {
-                if (!firstDictionary.get(key).equals(secondDictionary.get(key))) {
-                    result.put(key, "changed");
-                } else {
-                    result.put(key, "unchanged");
-                }
-            } else if (firstDictionary.containsKey(key)) {
-                result.put(key, "deleted");
-            } else if (secondDictionary.containsKey(key)) {
-                result.put(key, "added");
+    public static Map<String, StatusDefiner> genDiff(Map<String, Object> firstMap,
+                                                     Map<String, Object> secondMap) {
+
+        Map<String, StatusDefiner> diffs = new TreeMap<>();
+
+        Set<String> firstKeys = firstMap.keySet();
+        Set<String> secondKeys = secondMap.keySet();
+        TreeSet<String> unionKeys = new TreeSet<>(firstKeys);
+        unionKeys.addAll(secondKeys);
+
+        for (String key : unionKeys) {
+            boolean isFirstMapHasKey = firstMap.containsKey(key);
+            boolean isSecondMapHasKey = secondMap.containsKey(key);
+            if (isFirstMapHasKey && isSecondMapHasKey
+                    && String.valueOf(firstMap.get(key)).equals(String.valueOf(secondMap.get(key)))) {
+                diffs.put(key, new StatusDefiner(firstMap.get(key), secondMap.get(key), "unchanged"));
+            } else if (isFirstMapHasKey && isSecondMapHasKey
+                    && !String.valueOf(firstMap.get(key)).equals(String.valueOf(secondMap.get(key)))) {
+                diffs.put(key, new StatusDefiner(firstMap.get(key), secondMap.get(key), "changed"));
+            } else if (isFirstMapHasKey && !isSecondMapHasKey) {
+                diffs.put(key, new StatusDefiner(firstMap.get(key), secondMap.get(key), "deleted"));
+            } else {
+                diffs.put(key, new StatusDefiner(firstMap.get(key), secondMap.get(key), "added"));
             }
         }
-        return result;
+
+        return diffs;
     }
 }
