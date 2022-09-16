@@ -1,6 +1,8 @@
 plugins {
     id 'java'
     id 'application'
+    id 'checkstyle'
+    id 'jacoco'
 }
 
 group 'hexlet.code'
@@ -18,14 +20,27 @@ application {
     mainClass = 'hexlet.code.App'
 }
 
+checkstyle {
+    toolVersion '9.2.1'
+}
+
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.0'
+    testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.23.1'
+    testCompileOnly 'junit:junit:4.13.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.0'
     implementation 'info.picocli:picocli:4.6.3'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.4'
     implementation 'io.vertx:vertx-core:4.3.3'
 }
 
-test {
+tasks.withType(Test) {
     useJUnitPlatform()
+}
+
+test {
+    finalizedBy jacocoTestReport
+}
+jacocoTestReport {
+    dependsOn test
 }
