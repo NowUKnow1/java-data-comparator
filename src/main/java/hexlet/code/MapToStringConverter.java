@@ -6,23 +6,23 @@ public class MapToStringConverter {
     public static String convert(Map<String, StatusDefiner> map) throws Exception {
         StringBuilder mapAsString = new StringBuilder("{\n");
         for (Map.Entry<String, StatusDefiner> entry : map.entrySet()) {
-            String status = entry.getValue().getStatus();
+            DefinedStatus status = entry.getValue().getStatus();
             switch (status) {
-                case "changed":
+                case CHANGED:
                     mapAsString.append(" - ").append(entry.getKey()).append(": ")
                             .append(entry.getValue().getFistFileValue()).append("\n");
                     mapAsString.append(" + ").append(entry.getKey()).append(": ")
                             .append(entry.getValue().getSecondFileValue()).append("\n");
                     break;
-                case "unchanged":
+                case UNCHANGED:
                     mapAsString.append("   ").append(entry.getKey()).append(": ")
                             .append(entry.getValue().getFistFileValue()).append("\n");
                     break;
-                case "deleted":
+                case DELETED:
                     mapAsString.append(" - ").append(entry.getKey()).append(": ")
                             .append(entry.getValue().getFistFileValue()).append("\n");
                     break;
-                case "added":
+                case ADDED:
                     mapAsString.append(" + ").append(entry.getKey()).append(": ")
                             .append(entry.getValue().getSecondFileValue()).append("\n");
                     break;

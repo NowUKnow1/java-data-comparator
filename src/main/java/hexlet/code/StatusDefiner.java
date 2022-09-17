@@ -3,9 +3,9 @@ package hexlet.code;
 public class StatusDefiner {
     private final Object fistFileValue;
     private final Object secondFileValue;
-    private final String status;
+    private final DefinedStatus status;
 
-    public StatusDefiner(Object oldestValue, Object newestValue, String gotStatus) {
+    public StatusDefiner(Object oldestValue, Object newestValue, DefinedStatus gotStatus) {
         this.fistFileValue = oldestValue;
         this.secondFileValue = newestValue;
         this.status = gotStatus;
@@ -19,7 +19,7 @@ public class StatusDefiner {
         return secondFileValue;
     }
 
-    public String getStatus() {
+    public DefinedStatus getStatus() {
         return status;
     }
 }

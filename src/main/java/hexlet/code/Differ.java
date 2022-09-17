@@ -28,7 +28,7 @@ public class Differ {
 
         Map<String, StatusDefiner> differenceMap = Comparator.genDiff(dataFromFirstFile, dataFromSecondFile);
 
-        ObjectMapper mapper = new ObjectMapper();
+        //ObjectMapper mapper = new ObjectMapper();
         return MapToStringConverter.convert(differenceMap);
     }
 
