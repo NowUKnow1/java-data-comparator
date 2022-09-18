@@ -1,0 +1,10 @@
+{
+ - Chords: [c, d, e]
+ - Good song?: true
+ + Good song?: false
+ - Haters: null
+ + Haters: 5
+ - Song: Best kept secret
+ + Song: Wrecking ball
+   Year of song: 2003
+}
