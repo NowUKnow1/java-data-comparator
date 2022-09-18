@@ -11,15 +11,15 @@ public class StatusDefiner {
         this.status = gotStatus;
     }
 
-    public Object getFistFileValue() {
+    public final Object getFistFileValue() {
         return fistFileValue;
     }
 
-    public Object getSecondFileValue() {
+    public final Object getSecondFileValue() {
         return secondFileValue;
     }
 
-    public DefinedStatus getStatus() {
+    public final DefinedStatus getStatus() {
         return status;
     }
 }

@@ -1,6 +1,6 @@
 package hexlet.code;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+// import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -32,7 +32,7 @@ public class Differ {
         return MapToStringConverter.convert(differenceMap);
     }
 
-    public static String read(String filePath, String format) throws Exception{
+    public static String read(String filePath, String format) throws Exception {
         if (!format.equals(JSON)) {
             throw new Exception("Incorrect format");
         }

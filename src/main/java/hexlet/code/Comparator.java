@@ -1,8 +1,16 @@
 package hexlet.code;
 
-import java.util.*;
 
-import static hexlet.code.DefinedStatus.*;
+
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
+import java.util.TreeSet;
+
+import static hexlet.code.DefinedStatus.UNCHANGED;
+import static hexlet.code.DefinedStatus.CHANGED;
+import static hexlet.code.DefinedStatus.DELETED;
+import static hexlet.code.DefinedStatus.ADDED;
 
 public class Comparator {
     public static Map<String, StatusDefiner> genDiff(Map<String, Object> firstMap,
