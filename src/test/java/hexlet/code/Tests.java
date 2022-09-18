@@ -8,6 +8,7 @@ public class Tests {
     private static String firstResult;
     private static String secondResult;
     private static String thirdResult;
+    private static String fourthResult;
     @BeforeAll
     public static void beforeAll() throws Exception {
         firstResult = "{\n"
@@ -34,6 +35,8 @@ public class Tests {
                 + " + Song: Best kept secret\n"
                 + " + Year of song: 2003\n"
                 + "}";
+        fourthResult = "{\n"
+                + "}";
     }
 
     @Test
@@ -55,5 +58,10 @@ public class Tests {
         String firstFilePath = "./src/test/resources/file3.json";
         String secondFilePath = "./src/test/resources/file1.json";
         assertThat(Differ.generate(firstFilePath, secondFilePath, "json")).isEqualTo(thirdResult);
+    }
+    public final void testNullFiles() throws Exception {
+        String firstFilePath = "./src/test/resources/file3.json";
+        String secondFilePath = "./src/test/resources/file3.json";
+        assertThat(Differ.generate(firstFilePath, secondFilePath, "json")).isEqualTo(fourthResult);
     }
 }
