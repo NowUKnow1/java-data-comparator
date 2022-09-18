@@ -29,6 +29,3 @@ jobs:
         with:
           coverageCommand: make report
           coverageLocations: ${{github.workspace}}/build/reports/jacoco/test/jacocoTestReport.xml:jacoco
-
-#      - name: Publish code coverage
-#        uses: paambaati/codeclimate-action@v3.0.0
