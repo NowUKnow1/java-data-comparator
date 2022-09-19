@@ -1,9 +1,28 @@
 package hexlet.code;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.util.Map;
 
 public class MapToStringConverter {
-    public static String convert(Map<String, StatusDefiner> map) throws Exception {
+    static final String STYLISH = "stylish";
+    static final String JSON = "json";
+    public static String convert(Map<String, StatusDefiner> map, String format) throws Exception {
+        String result;
+        switch (format) {
+            case STYLISH:
+                result = convertToStylish(map);
+                break;
+            case JSON:
+                result = convertToJson(map);
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + format);
+        }
+        return result;
+    }
+    private static String convertToStylish(Map<String, StatusDefiner> map) throws Exception {
         StringBuilder mapAsString = new StringBuilder("{\n");
         for (Map.Entry<String, StatusDefiner> entry : map.entrySet()) {
             DefinedStatus status = entry.getValue().getStatus();
@@ -34,5 +53,9 @@ public class MapToStringConverter {
         mapAsString.append("}");
         mapAsString.delete(mapAsString.length() - 1, mapAsString.length()).append("}");
         return mapAsString.toString();
+    }
+    private static String convertToJson(Map<String, StatusDefiner> map) throws JsonProcessingException {
+        ObjectMapper mapper = new ObjectMapper();
+        return mapper.writeValueAsString(map);
     }
 }
