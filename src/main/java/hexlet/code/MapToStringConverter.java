@@ -2,12 +2,14 @@ package hexlet.code;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 
 import java.util.Map;
 
 public class MapToStringConverter {
     static final String STYLISH = "stylish";
     static final String JSON = "json";
+    static final String YML = "yml";
     public static String convert(Map<String, StatusDefiner> map, String format) throws Exception {
         String result;
         switch (format) {
@@ -16,6 +18,9 @@ public class MapToStringConverter {
                 break;
             case JSON:
                 result = convertToJson(map);
+                break;
+            case YML:
+                result = convertToYml(map);
                 break;
             default:
                 throw new IllegalStateException("Unexpected value: " + format);
@@ -56,6 +61,10 @@ public class MapToStringConverter {
     }
     private static String convertToJson(Map<String, StatusDefiner> map) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
+        return mapper.writeValueAsString(map);
+    }
+    private static String convertToYml(Map<String, StatusDefiner> map) throws JsonProcessingException {
+        ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
         return mapper.writeValueAsString(map);
     }
 }

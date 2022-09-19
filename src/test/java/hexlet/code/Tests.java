@@ -10,6 +10,7 @@ public class Tests {
     private static String thirdResult;
     private static String fourthResult;
     private static String fifthResult;
+    private static String sixthResult;
 
     @BeforeAll
     public static void beforeAll() throws Exception {
@@ -46,7 +47,30 @@ public class Tests {
                 + ":5,\"status\":\"CHANGED\"},\"Song\":{\"fistFileValue\":\"Best kept secret\","
                 + "\"secondFileValue\":\"Wrecking ball\",\"status\":\"CHANGED\"},"
                 + "\"Year of song\":{\"fistFileValue\":2003,\"secondFileValue\":2003,\"status\":\"UNCHANGED\"}}";
-
+        sixthResult = "---\n"
+                + "Chords:\n"
+                + "  fistFileValue:\n"
+                + "  - \"c\"\n"
+                + "  - \"d\"\n"
+                + "  - \"e\"\n"
+                + "  secondFileValue: null\n"
+                + "  status: \"DELETED\"\n"
+                + "Good song?:\n"
+                + "  fistFileValue: true\n"
+                + "  secondFileValue: false\n"
+                + "  status: \"CHANGED\"\n"
+                + "Haters:\n"
+                + "  fistFileValue: null\n"
+                + "  secondFileValue: 5\n"
+                + "  status: \"CHANGED\"\n"
+                + "Song:\n"
+                + "  fistFileValue: \"Best kept secret\"\n"
+                + "  secondFileValue: \"Wrecking ball\"\n"
+                + "  status: \"CHANGED\"\n"
+                + "Year of song:\n"
+                + "  fistFileValue: 2003\n"
+                + "  secondFileValue: 2003\n"
+                + "  status: \"UNCHANGED\"\n";
     }
 
     @Test
@@ -85,10 +109,17 @@ public class Tests {
     }
 
     @Test
-    public void testDifferWithoutFormat() throws Exception {
+    public void testDifferJsonFormat() throws Exception {
         String firstFilePath = "./src/test/resources/file1.json";
         String secondFilePath = "./src/test/resources/file2.json";
         assertThat(Differ.generate(firstFilePath, secondFilePath, "json")).isEqualTo(fifthResult);
+    }
+
+    @Test
+    public void testDifferYmlFormat() throws Exception {
+        String firstFilePath = "./src/test/resources/file1.yml";
+        String secondFilePath = "./src/test/resources/file2.yml";
+        assertThat(Differ.generate(firstFilePath, secondFilePath, "yml")).isEqualTo(sixthResult);
     }
 
     @Test
@@ -98,6 +129,18 @@ public class Tests {
         String expectation = "Unexpected value: txt";
         try {
             Differ.generate(firstFilePath, secondFilePath, "txt");
+        } catch (Exception e) {
+            assertThat(e.getMessage()).isEqualTo(expectation);
+        }
+    }
+
+    @Test
+    public void testDifferWrongFileFormat() throws Exception {
+        String firstFilePath = "./src/test/resources/file1.json";
+        String secondFilePath = "./src/test/resources/file2.txt";
+        String expectation = "Incorrect format";
+        try {
+            Differ.generate(firstFilePath, secondFilePath, "stylish");
         } catch (Exception e) {
             assertThat(e.getMessage()).isEqualTo(expectation);
         }
