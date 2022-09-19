@@ -9,6 +9,7 @@ import java.util.Map;
 
 public class Differ {
     private static final String JSON = "json";
+    private static final String YML = "yml";
     public static String generate(String filepath1, String filepath2, String format) throws Exception {
         String firstFormat;
         String secondFormat;
@@ -33,7 +34,7 @@ public class Differ {
     }
 
     public static String read(String filePath, String format) throws Exception {
-        if (!format.equals(JSON)) {
+        if (!format.equals(JSON) && !format.equals(YML)) {
             throw new Exception("Incorrect format");
         }
         Path path = Paths.get(filePath);
