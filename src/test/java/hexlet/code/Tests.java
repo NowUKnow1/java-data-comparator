@@ -59,9 +59,18 @@ public class Tests {
         String secondFilePath = "./src/test/resources/file1.json";
         assertThat(Differ.generate(firstFilePath, secondFilePath, "json")).isEqualTo(thirdResult);
     }
+
+    @Test
     public final void testNullFiles() throws Exception {
         String firstFilePath = "./src/test/resources/file3.json";
         String secondFilePath = "./src/test/resources/file3.json";
         assertThat(Differ.generate(firstFilePath, secondFilePath, "json")).isEqualTo(fourthResult);
+    }
+
+    @Test
+    public void testDifferYml() throws Exception {
+        String firstFilePath = "./src/test/resources/file1.yml";
+        String secondFilePath = "./src/test/resources/file2.yml";
+        assertThat(Differ.generate(firstFilePath, secondFilePath, "yml")).isEqualTo(firstResult);
     }
 }
