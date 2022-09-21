@@ -2,7 +2,12 @@ package hexlet.code;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeAll;
+
 import static org.assertj.core.api.Assertions.assertThat;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 public class Tests {
     private static String firstResult;
@@ -12,35 +17,37 @@ public class Tests {
     private static String fifthResult;
     private static String sixthResult;
     private static String seventhResult;
+    private static String resultStylish;
+    private static String resultPlain;
 
     @BeforeAll
     public static void beforeAll() throws Exception {
         firstResult = "{\n"
-                + " - Chords: [c, d, e]\n"
-                + " - Good song?: true\n"
-                + " + Good song?: false\n"
-                + " - Haters: null\n"
-                + " + Haters: 5\n"
-                + " - Song: Best kept secret\n"
-                + " + Song: Wrecking ball\n"
-                + "   Year of song: 2003\n"
-                + "}";
+                + "  - Chords: [c, d, e]\n"
+                + "  - Good song?: true\n"
+                + "  + Good song?: false\n"
+                + "  - Haters: null\n"
+                + "  + Haters: 5\n"
+                + "  - Song: Best kept secret\n"
+                + "  + Song: Wrecking ball\n"
+                + "    Year of song: 2003\n"
+                + "}\n";
         secondResult = "{\n"
-                + " - Chords: [c, d, e]\n"
-                + " - Good song?: true\n"
-                + " - Haters: null\n"
-                + " - Song: Best kept secret\n"
-                + " - Year of song: 2003\n"
-                + "}";
+                + "  - Chords: [c, d, e]\n"
+                + "  - Good song?: true\n"
+                + "  - Haters: null\n"
+                + "  - Song: Best kept secret\n"
+                + "  - Year of song: 2003\n"
+                + "}\n";
         thirdResult = "{\n"
-                + " + Chords: [c, d, e]\n"
-                + " + Good song?: true\n"
-                + " + Haters: null\n"
-                + " + Song: Best kept secret\n"
-                + " + Year of song: 2003\n"
-                + "}";
+                + "  + Chords: [c, d, e]\n"
+                + "  + Good song?: true\n"
+                + "  + Haters: null\n"
+                + "  + Song: Best kept secret\n"
+                + "  + Year of song: 2003\n"
+                + "}\n";
         fourthResult = "{\n"
-                + "}";
+                + "}\n";
         fifthResult = "{\"Chords\":{\"fistFileValue\":[\"c\",\"d\",\"e\"],\"secondFileValue\""
                 + ":null,\"status\":\"DELETED\"},\"Good song?\""
                 + ":{\"fistFileValue\":true,\"secondFileValue\":false,\"status\":\"CHANGED\"},"
@@ -78,7 +85,30 @@ public class Tests {
                 + "Property 'Good song?' was updated. From true to false\n"
                 + "Property 'Haters' was updated. From null to 5\n"
                 + "Property 'Hello Counters' was added with value: [complex value]\n"
-                + "Property 'Song' was updated. From 'Best kept secret' to 'Wrecking ball'";
+                + "Property 'Song' was updated. From 'Best kept secret' to 'Wrecking ball'\n";
+        resultPlain = getResultFromFile("src/test/resources/result_plain.txt");
+        resultStylish = getResultFromFile("src/test/resources/result_stylish.txt");
+    }
+
+    private static String getResultFromFile(String path) throws IOException {
+        Path gotPath = Path.of(path);
+        return Files.readString(gotPath);
+    }
+
+    @Test
+    public void hexletJavaTests() throws Exception {
+        String firstJavaFilePath = "./src/test/resources/file11.json";
+        String secondJavaFilePath = "./src/test/resources/file12.json";
+        assertThat(Differ.generate(firstJavaFilePath, secondJavaFilePath, "stylish")).isEqualTo(resultStylish);
+        assertThat(Differ.generate(firstJavaFilePath, secondJavaFilePath, "plain")).isEqualTo(resultPlain);
+    }
+
+    @Test
+    public void hexletYmlTests() throws Exception {
+        String firstJavaFilePath = "./src/test/resources/file11.yml";
+        String secondJavaFilePath = "./src/test/resources/file12.yml";
+        assertThat(Differ.generate(firstJavaFilePath, secondJavaFilePath, "stylish")).isEqualTo(resultStylish);
+        assertThat(Differ.generate(firstJavaFilePath, secondJavaFilePath, "plain")).isEqualTo(resultPlain);
     }
 
     @Test

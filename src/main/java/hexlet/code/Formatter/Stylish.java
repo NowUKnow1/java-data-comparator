@@ -12,21 +12,21 @@ public class Stylish {
             DefinedStatus status = entry.getValue().getStatus();
             switch (status) {
                 case CHANGED:
-                    mapAsString.append(" - ").append(entry.getKey()).append(": ")
+                    mapAsString.append("  - ").append(entry.getKey()).append(": ")
                             .append(entry.getValue().getFistFileValue()).append("\n");
-                    mapAsString.append(" + ").append(entry.getKey()).append(": ")
+                    mapAsString.append("  + ").append(entry.getKey()).append(": ")
                             .append(entry.getValue().getSecondFileValue()).append("\n");
                     break;
                 case UNCHANGED:
-                    mapAsString.append("   ").append(entry.getKey()).append(": ")
+                    mapAsString.append("    ").append(entry.getKey()).append(": ")
                             .append(entry.getValue().getFistFileValue()).append("\n");
                     break;
                 case DELETED:
-                    mapAsString.append(" - ").append(entry.getKey()).append(": ")
+                    mapAsString.append("  - ").append(entry.getKey()).append(": ")
                             .append(entry.getValue().getFistFileValue()).append("\n");
                     break;
                 case ADDED:
-                    mapAsString.append(" + ").append(entry.getKey()).append(": ")
+                    mapAsString.append("  + ").append(entry.getKey()).append(": ")
                             .append(entry.getValue().getSecondFileValue()).append("\n");
                     break;
                 default:
@@ -34,7 +34,7 @@ public class Stylish {
             }
         }
         mapAsString.append("}");
-        mapAsString.delete(mapAsString.length() - 1, mapAsString.length()).append("}");
+        mapAsString.delete(mapAsString.length() - 1, mapAsString.length()).append("}\n");
         return mapAsString.toString();
     }
 }

@@ -40,7 +40,7 @@ public class Plain {
                     throw new Exception("Unexpected status:" + status);
             }
         }
-        result = new StringBuilder(result.substring(0, result.length() - 1));
+        result = new StringBuilder(result.substring(0, result.length() - 1)).append("\n");
         return result.toString();
     }
 
