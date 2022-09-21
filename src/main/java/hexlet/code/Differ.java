@@ -1,7 +1,5 @@
 package hexlet.code;
 
-// import com.fasterxml.jackson.databind.ObjectMapper;
-
 import hexlet.code.Formatter.Formatter;
 
 import java.nio.file.Files;
@@ -24,7 +22,6 @@ public class Differ {
 
         Map<String, StatusDefiner> differenceMap = Comparator.genDiff(dataFromFirstFile, dataFromSecondFile);
 
-        //ObjectMapper mapper = new ObjectMapper();
         return Formatter.convert(differenceMap, format);
     }
 

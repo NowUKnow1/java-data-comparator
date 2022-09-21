@@ -12,7 +12,7 @@ public class Parser {
     private static final String JSON = "json";
     private static final String YML = "yml";
     public static Map<String, Object> getMap(String filePath, String format) throws Exception {
-        Map<String, Object> result = new HashMap<>();
+        Map<String, Object> result;
         switch (format) {
             case JSON:
                 result = getMapFromJson(filePath);

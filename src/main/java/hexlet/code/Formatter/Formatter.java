@@ -5,10 +5,10 @@ import hexlet.code.StatusDefiner;
 import java.util.Map;
 
 public class Formatter {
-    static final String STYLISH = "stylish";
-    static final String JSON = "json";
-    static final String YML = "yml";
-    static final String PLAIN = "plain";
+    private static final String STYLISH = "stylish";
+    private static final String JSON = "json";
+    private static final String YML = "yml";
+    private static final String PLAIN = "plain";
     public static String convert(Map<String, StatusDefiner> map, String format) throws Exception {
         String result;
         switch (format) {

@@ -16,9 +16,9 @@ public class Plain {
                     result.append("Property '")
                             .append(entry.getKey())
                             .append("' was updated. From ")
-                            .append(formatValue(entry.getValue().getFistFileValue()))
+                            .append(complexValueCheck(entry.getValue().getFistFileValue()))
                             .append(" to ")
-                            .append(formatValue(entry.getValue().getSecondFileValue()))
+                            .append(complexValueCheck(entry.getValue().getSecondFileValue()))
                             .append("\n");
                     break;
                 case DELETED:
@@ -31,7 +31,7 @@ public class Plain {
                     result.append("Property '")
                             .append(entry.getKey())
                             .append("' was added with value: ")
-                            .append(formatValue(entry.getValue().getSecondFileValue()))
+                            .append(complexValueCheck(entry.getValue().getSecondFileValue()))
                             .append("\n");
                     break;
                 case UNCHANGED:
@@ -45,7 +45,7 @@ public class Plain {
     }
 
 
-    private static String formatValue(Object value) {
+    private static String complexValueCheck(Object value) {
         String result;
         if (value instanceof Map || value instanceof List) {
             return "[complex value]";
