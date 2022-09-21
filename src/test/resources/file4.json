@@ -1,0 +1,9 @@
+{
+  "Song": "Best kept secret",
+  "Year of song": 2003,
+  "Good song?": true,
+  "Chords": ["c", "d", "e"],
+  "Haters": null,
+  "Counters": [1, 2, 3],
+  "CountersTwo": [5, 6, 7]
+}

@@ -11,6 +11,7 @@ public class Tests {
     private static String fourthResult;
     private static String fifthResult;
     private static String sixthResult;
+    private static String seventhResult;
 
     @BeforeAll
     public static void beforeAll() throws Exception {
@@ -71,6 +72,13 @@ public class Tests {
                 + "  fistFileValue: 2003\n"
                 + "  secondFileValue: 2003\n"
                 + "  status: \"UNCHANGED\"\n";
+        seventhResult = "Property 'Chords' was removed\n"
+                + "Property 'Counters' was updated. From [complex value] to [complex value]\n"
+                + "Property 'CountersTwo' was removed\n"
+                + "Property 'Good song?' was updated. From true to false\n"
+                + "Property 'Haters' was updated. From null to 5\n"
+                + "Property 'Hello Counters' was added with value: [complex value]\n"
+                + "Property 'Song' was updated. From 'Best kept secret' to 'Wrecking ball'";
     }
 
     @Test
@@ -120,6 +128,13 @@ public class Tests {
         String firstFilePath = "./src/test/resources/file1.yml";
         String secondFilePath = "./src/test/resources/file2.yml";
         assertThat(Differ.generate(firstFilePath, secondFilePath, "yml")).isEqualTo(sixthResult);
+    }
+
+    @Test
+    public void testDifferPlainFormat() throws Exception {
+        String firstFilePath = "./src/test/resources/file4.json";
+        String secondFilePath = "./src/test/resources/file5.json";
+        assertThat(Differ.generate(firstFilePath, secondFilePath, "plain")).isEqualTo(seventhResult);
     }
 
     @Test
