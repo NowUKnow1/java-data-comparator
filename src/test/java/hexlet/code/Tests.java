@@ -185,7 +185,7 @@ public class Tests {
     public void testDifferWrongFileFormat() throws Exception {
         String firstFilePath = "./src/test/resources/file1.json";
         String secondFilePath = "./src/test/resources/file2.txt";
-        String expectation = "Incorrect format";
+        String expectation = "File formats are different. Check files format.";
         try {
             Differ.generate(firstFilePath, secondFilePath, "stylish");
         } catch (Exception e) {
