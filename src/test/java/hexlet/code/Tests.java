@@ -99,6 +99,7 @@ public class Tests {
     public void hexletJavaTests() throws Exception {
         String firstJavaFilePath = "./src/test/resources/file11.json";
         String secondJavaFilePath = "./src/test/resources/file12.json";
+        assertThat(Differ.generate(firstJavaFilePath, secondJavaFilePath)).isEqualTo(resultStylish);
         assertThat(Differ.generate(firstJavaFilePath, secondJavaFilePath, "stylish")).isEqualTo(resultStylish);
         assertThat(Differ.generate(firstJavaFilePath, secondJavaFilePath, "plain")).isEqualTo(resultPlain);
     }
@@ -107,6 +108,7 @@ public class Tests {
     public void hexletYmlTests() throws Exception {
         String firstJavaFilePath = "./src/test/resources/file11.yml";
         String secondJavaFilePath = "./src/test/resources/file12.yml";
+        assertThat(Differ.generate(firstJavaFilePath, secondJavaFilePath)).isEqualTo(resultStylish);
         assertThat(Differ.generate(firstJavaFilePath, secondJavaFilePath, "stylish")).isEqualTo(resultStylish);
         assertThat(Differ.generate(firstJavaFilePath, secondJavaFilePath, "plain")).isEqualTo(resultPlain);
     }
