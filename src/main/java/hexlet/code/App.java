@@ -1,12 +1,10 @@
 package hexlet.code;
 
-import com.fasterxml.jackson.databind.exc.InvalidFormatException;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 import picocli.CommandLine.Parameters;
 
-import java.io.IOException;
 import java.util.concurrent.Callable;
 
 @Command(name = "Differ", mixinStandardHelpOptions = true, version = "Differ 1.0",
