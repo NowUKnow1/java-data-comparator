@@ -1,4 +1,4 @@
-package hexlet.code;
+package hexlet.gradle.project;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeAll;
@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-public class Tests {
+public class AppTest {
     private static String firstResult;
     private static String secondResult;
     private static String thirdResult;

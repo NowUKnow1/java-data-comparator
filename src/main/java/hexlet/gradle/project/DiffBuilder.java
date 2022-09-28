@@ -1,4 +1,4 @@
-package hexlet.code;
+package hexlet.gradle.project;
 
 
 
@@ -7,10 +7,10 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import static hexlet.code.DefinedStatus.UNCHANGED;
-import static hexlet.code.DefinedStatus.CHANGED;
-import static hexlet.code.DefinedStatus.DELETED;
-import static hexlet.code.DefinedStatus.ADDED;
+import static hexlet.gradle.project.DefinedStatus.UNCHANGED;
+import static hexlet.gradle.project.DefinedStatus.CHANGED;
+import static hexlet.gradle.project.DefinedStatus.DELETED;
+import static hexlet.gradle.project.DefinedStatus.ADDED;
 
 public class DiffBuilder {
     public static Map<String, ItemData> genDiff(Map<String, Object> firstMap,

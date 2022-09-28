@@ -1,6 +1,6 @@
-package hexlet.code;
+package hexlet.gradle.project;
 
-import hexlet.code.Formatter.Formatter;
+import hexlet.gradle.project.Formatter.Formatter;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -56,6 +56,10 @@ public class Differ {
             throw new Exception("Incorrect format");
         }
         Path path = Paths.get(filePath);
+        if (!path.isAbsolute()) {
+            path.toAbsolutePath();
+            return Files.readString(path);
+        }
         return Files.readString(path);
     }
 

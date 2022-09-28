@@ -1,4 +1,4 @@
-package hexlet.code;
+package hexlet.gradle.project;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;

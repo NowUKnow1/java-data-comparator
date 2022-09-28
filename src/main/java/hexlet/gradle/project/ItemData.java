@@ -1,4 +1,4 @@
-package hexlet.code;
+package hexlet.gradle.project;
 
 public class ItemData {
     private final Object fistFileValue;

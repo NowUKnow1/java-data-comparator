@@ -1,9 +1,9 @@
-package hexlet.code.Formatter;
+package hexlet.gradle.project.Formatter;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
-import hexlet.code.ItemData;
+import hexlet.gradle.project.ItemData;
 
 import java.util.Map;
 

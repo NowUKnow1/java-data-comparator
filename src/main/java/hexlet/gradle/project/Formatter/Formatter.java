@@ -1,6 +1,6 @@
-package hexlet.code.Formatter;
+package hexlet.gradle.project.Formatter;
 
-import hexlet.code.ItemData;
+import hexlet.gradle.project.ItemData;
 
 import java.util.Map;
 
