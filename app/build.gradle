@@ -17,7 +17,7 @@ compileJava {
 }
 
 application {
-    mainClass = 'hexlet.code.App'
+    mainClass = 'hexlet.gradle.project.App'
 }
 
 checkstyle {
