@@ -1,15 +1,15 @@
 package hexlet.code.Formatter;
 
 import hexlet.code.DefinedStatus;
-import hexlet.code.StatusDefiner;
+import hexlet.code.ItemData;
 import java.util.List;
 import java.util.Map;
 
-public class Plain {
-    public static String convertToPlain(Map<String, StatusDefiner> map) throws Exception {
+public class PlainConverter {
+    public static String convertToPlain(Map<String, ItemData> map) throws Exception {
         StringBuilder result = new StringBuilder();
 
-        for (Map.Entry<String, StatusDefiner> entry : map.entrySet()) {
+        for (Map.Entry<String, ItemData> entry : map.entrySet()) {
             DefinedStatus status = entry.getValue().getStatus();
             switch (status) {
                 case CHANGED:

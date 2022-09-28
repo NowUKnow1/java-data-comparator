@@ -1,14 +1,14 @@
 package hexlet.code.Formatter;
 
 import hexlet.code.DefinedStatus;
-import hexlet.code.StatusDefiner;
+import hexlet.code.ItemData;
 
 import java.util.Map;
 
-public class Stylish {
-    public static String convertToStylish(Map<String, StatusDefiner> map) throws Exception {
+public class StylishConverter {
+    public static String convertToStylish(Map<String, ItemData> map) throws Exception {
         StringBuilder mapAsString = new StringBuilder("{\n");
-        for (Map.Entry<String, StatusDefiner> entry : map.entrySet()) {
+        for (Map.Entry<String, ItemData> entry : map.entrySet()) {
             DefinedStatus status = entry.getValue().getStatus();
             switch (status) {
                 case CHANGED:
