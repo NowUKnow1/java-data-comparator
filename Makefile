@@ -10,7 +10,7 @@ install:
 	./gradlew clean install
 
 run-dist:
-		/build/install/app/bin/app
+	/home/vadim/app/build/install/app/bin/app
 
 run:
 	./gradlew run
