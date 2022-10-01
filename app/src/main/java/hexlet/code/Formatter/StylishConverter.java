@@ -1,7 +1,7 @@
-package hexlet.gradle.project.Formatter;
+package hexlet.code.Formatter;
 
-import hexlet.gradle.project.DefinedStatus;
-import hexlet.gradle.project.ItemData;
+import hexlet.code.DefinedStatus;
+import hexlet.code.ItemData;
 
 import java.util.Map;
 

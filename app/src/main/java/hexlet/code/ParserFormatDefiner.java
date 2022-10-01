@@ -1,4 +1,4 @@
-package hexlet.gradle.project;
+package hexlet.code;
 
 import java.util.Map;
 

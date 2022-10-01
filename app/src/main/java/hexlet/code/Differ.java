@@ -1,6 +1,6 @@
-package hexlet.gradle.project;
+package hexlet.code;
 
-import hexlet.gradle.project.Formatter.Formatter;
+import hexlet.code.Formatter.Formatter;
 
 import java.nio.file.Files;
 import java.nio.file.Path;

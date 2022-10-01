@@ -1,8 +1,8 @@
-package hexlet.gradle.project.Formatter;
+package hexlet.code.Formatter;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import hexlet.gradle.project.ItemData;
+import hexlet.code.ItemData;
 
 import java.util.Map;
 

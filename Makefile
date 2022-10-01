@@ -1,33 +1,33 @@
 .DEFAULT_GOAL := build-run
 
-clean:
-	./gradlew clean
+ clean:
+ 	make -C app clean
 
-build:
-	./gradlew clean build
+ build:
+ 	make -C app build
 
-install:
-	./gradlew clean install
+ install:
+ 	make -C app install
 
-run-dist:
-	/home/vadim/app/build/install/app/bin/app
+ run-dist:
+ 	make -C run-dist
 
-run:
-	./gradlew run
+ run:
+ 	make -C app run
 
-test:
-	./gradlew test
+ test:
+ 	make -C app test
 
-report:
-	./gradlew jacocoTestReport
+ report:
+ 	make -C app report
 
-lint:
-	./gradlew checkstyleMain checkstyleTest
+ lint:
+ 	make -C app lint
 
-update-deps:
-	./gradlew useLatestVersions
+ update-deps:
+ 	make -C app update-deps
 
 
-build-run: build run
+ build-run: build run
 
-.PHONY: build
+ .PHONY: build

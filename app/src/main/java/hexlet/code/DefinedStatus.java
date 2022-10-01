@@ -1,4 +1,4 @@
-package hexlet.gradle.project;
+package hexlet.code;
 
 public enum DefinedStatus {
     CHANGED,
