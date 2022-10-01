@@ -57,6 +57,7 @@ public class Differ {
         }
         Path path = Paths.get(filePath);
         if (!path.isAbsolute()) {
+            //noinspection ResultOfMethodCallIgnored
             path.toAbsolutePath();
             return Files.readString(path);
         }
