@@ -85,7 +85,7 @@ public class AppTest {
                 + "Property 'Good song?' was updated. From true to false\n"
                 + "Property 'Haters' was updated. From null to 5\n"
                 + "Property 'Hello Counters' was added with value: [complex value]\n"
-                + "Property 'Song' was updated. From 'Best kept secret' to 'Wrecking ball'\n";
+                + "Property 'Song' was updated. From 'Best kept secret' to 'Wrecking ball'";
         resultPlain = getResultFromFile("src/test/resources/result_plain.txt");
         resultStylish = getResultFromFile("src/test/resources/result_stylish.txt");
     }

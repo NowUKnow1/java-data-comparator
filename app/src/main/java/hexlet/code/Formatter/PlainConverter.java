@@ -41,7 +41,7 @@ public class PlainConverter {
                     throw new Exception("Unexpected status:" + status);
             }
         }
-        result = new StringBuilder(result.substring(0, result.length() - 1)).append("\n");
+        result = new StringBuilder(result.substring(0, result.length() - 1));
         return result.toString();
     }
 
