@@ -5,7 +5,7 @@ plugins {
     id 'jacoco'
 }
 
-group 'hexlet.gradle.project'
+group 'hexlet.code'
 version '1.0-SNAPSHOT'
 
 repositories {
@@ -17,7 +17,7 @@ compileJava {
 }
 
 application {
-    mainClass = 'app.hexlet.gradle.project.App'
+    mainClass = 'hexlet.code.App'
 }
 
 checkstyle {
