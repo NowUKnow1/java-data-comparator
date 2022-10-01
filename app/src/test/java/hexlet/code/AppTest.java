@@ -1,4 +1,4 @@
-package hexlet.gradle.project;
+package hexlet.code;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeAll;
@@ -31,23 +31,23 @@ public class AppTest {
                 + "  - Song: Best kept secret\n"
                 + "  + Song: Wrecking ball\n"
                 + "    Year of song: 2003\n"
-                + "}\n";
+                + "}";
         secondResult = "{\n"
                 + "  - Chords: [c, d, e]\n"
                 + "  - Good song?: true\n"
                 + "  - Haters: null\n"
                 + "  - Song: Best kept secret\n"
                 + "  - Year of song: 2003\n"
-                + "}\n";
+                + "}";
         thirdResult = "{\n"
                 + "  + Chords: [c, d, e]\n"
                 + "  + Good song?: true\n"
                 + "  + Haters: null\n"
                 + "  + Song: Best kept secret\n"
                 + "  + Year of song: 2003\n"
-                + "}\n";
+                + "}";
         fourthResult = "{\n"
-                + "}\n";
+                + "}";
         fifthResult = "{\"Chords\":{\"fistFileValue\":[\"c\",\"d\",\"e\"],\"secondFileValue\""
                 + ":null,\"status\":\"DELETED\"},\"Good song?\""
                 + ":{\"fistFileValue\":true,\"secondFileValue\":false,\"status\":\"CHANGED\"},"

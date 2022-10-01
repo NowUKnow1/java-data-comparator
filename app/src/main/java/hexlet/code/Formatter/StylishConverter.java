@@ -34,7 +34,7 @@ public class StylishConverter {
             }
         }
         mapAsString.append("}");
-        mapAsString.delete(mapAsString.length() - 1, mapAsString.length()).append("}\n");
+        mapAsString.delete(mapAsString.length() - 1, mapAsString.length()).append("}");
         return mapAsString.toString();
     }
 }
