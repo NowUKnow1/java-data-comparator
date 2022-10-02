@@ -1,4 +1,4 @@
-package hexlet.code.Formatter;
+package hexlet.code.formatter;
 
 import hexlet.code.DefinedStatus;
 import hexlet.code.ItemData;

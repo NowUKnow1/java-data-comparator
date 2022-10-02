@@ -1,4 +1,4 @@
-package hexlet.code;
+package hexlet.code.parser;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;

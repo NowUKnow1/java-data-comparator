@@ -28,7 +28,7 @@ public class App implements Callable<Integer> {
         try {
             differ = Differ.generate(filepath1, filepath2, format);
         } catch (Exception e) {
-            throw new Exception(e);
+            throw new Exception("Something went wrong, sorry.");
         }
         System.out.println(differ);
         return 0;

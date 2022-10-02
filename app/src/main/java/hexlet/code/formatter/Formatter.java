@@ -1,4 +1,4 @@
-package hexlet.code.Formatter;
+package hexlet.code.formatter;
 
 import hexlet.code.ItemData;
 
@@ -13,20 +13,15 @@ public class Formatter {
         String result = STYLISH;
         switch (format) {
             case STYLISH:
-                result = StylishConverter.convertToStylish(map);
-                break;
+                return StylishConverter.convertToStylish(map);
             case JSON:
-                result = JsonConverter.convertToJson(map);
-                break;
+                return JsonConverter.convertToJson(map);
             case YML:
-                result = YmlConverter.convertToYml(map);
-                break;
+                return YmlConverter.convertToYml(map);
             case PLAIN:
-                result = PlainConverter.convertToPlain(map);
-                break;
+                return PlainConverter.convertToPlain(map);
             default:
                 throw new IllegalStateException("Unexpected value: " + format);
         }
-        return result;
     }
 }

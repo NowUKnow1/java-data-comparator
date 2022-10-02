@@ -1,4 +1,4 @@
-package hexlet.code.Formatter;
+package hexlet.code.formatter;
 
 import hexlet.code.DefinedStatus;
 import hexlet.code.ItemData;
@@ -50,12 +50,11 @@ public class PlainConverter {
         String result;
         if (value instanceof Map || value instanceof List) {
             return "[complex value]";
+        }
+        if (value instanceof String) {
+            result = "'" + value + "'";
         } else {
-            if (value instanceof String) {
-                result = "'" + value + "'";
-            } else {
-                result = String.valueOf(value);
-            }
+            result = String.valueOf(value);
         }
         return result;
     }

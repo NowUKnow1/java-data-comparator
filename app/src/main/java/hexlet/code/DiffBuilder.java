@@ -26,11 +26,13 @@ public class DiffBuilder {
         for (String key : unionKeys) {
             boolean isFirstMapHasKey = firstMap.containsKey(key);
             boolean isSecondMapHasKey = secondMap.containsKey(key);
+            String firstMapKey = String.valueOf(firstMap.get(key));
+            String secondMapKey = String.valueOf(secondMap.get(key));
             if (isFirstMapHasKey && isSecondMapHasKey
-                    && String.valueOf(firstMap.get(key)).equals(String.valueOf(secondMap.get(key)))) {
+                    && firstMapKey.equals(secondMapKey)) {
                 diffs.put(key, new ItemData(firstMap.get(key), secondMap.get(key), UNCHANGED));
             } else if (isFirstMapHasKey && isSecondMapHasKey
-                    && !String.valueOf(firstMap.get(key)).equals(String.valueOf(secondMap.get(key)))) {
+                    && !firstMapKey.equals(secondMapKey)) {
                 diffs.put(key, new ItemData(firstMap.get(key), secondMap.get(key), CHANGED));
             } else if (isFirstMapHasKey && !isSecondMapHasKey) {
                 diffs.put(key, new ItemData(firstMap.get(key), secondMap.get(key), DELETED));
