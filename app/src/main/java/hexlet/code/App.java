@@ -24,11 +24,12 @@ public class App implements Callable<Integer> {
 
     @Override
     public final Integer call() throws Exception {
-        String differ;
+        String differ = "";
         try {
             differ = Differ.generate(filepath1, filepath2, format);
         } catch (Exception e) {
-            throw new Exception("Something went wrong, sorry.");
+            System.out.println("Error: " + e.getMessage());
+            e.printStackTrace();
         }
         System.out.println(differ);
         return 0;

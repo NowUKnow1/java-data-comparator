@@ -10,7 +10,6 @@ public class Formatter {
     private static final String YML = "yml";
     private static final String PLAIN = "plain";
     public static String convert(Map<String, ItemData> map, String format) throws Exception {
-        String result = STYLISH;
         switch (format) {
             case STYLISH:
                 return StylishConverter.convertToStylish(map);

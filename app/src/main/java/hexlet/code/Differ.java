@@ -9,8 +9,6 @@ import java.nio.file.Paths;
 import java.util.Map;
 
 public class Differ {
-    private static final String JSON = "json";
-    private static final String YML = "yml";
     public static String generate(String filepath1, String filepath2, String format) throws Exception {
         String firstFormat = getExtension(filepath1);
         String secondFormat = getExtension(filepath2);
