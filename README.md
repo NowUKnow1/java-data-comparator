@@ -4,12 +4,17 @@
 <a href="https://codeclimate.com/github/NowUKnow1/java-project-71/maintainability"><img src="https://api.codeclimate.com/v1/badges/9f7c0e91b893e78f6275/maintainability" /></a>
 <a href="https://codeclimate.com/github/NowUKnow1/java-project-71/test_coverage"><img src="https://api.codeclimate.com/v1/badges/9f7c0e91b893e78f6275/test_coverage" /></a>
 
-[![asciicast](https://asciinema.org/a/CpAIqB2gi3edJapKQQJ0Rm0na.svg)](https://asciinema.org/a/CpAIqB2gi3edJapKQQJ0Rm0na)
+Данная утилита сравнивает два объекта и возвращает результат сравнения в виде объекта. Ключами результирующего объекта будут все ключи из двух входящих объектов, а значением строка с описанием отличий: added, deleted, changed или unchanged.
 
-[![asciicast](https://asciinema.org/a/CpAIqB2gi3edJapKQQJ0Rm0na.svg)](https://asciinema.org/a/CpAIqB2gi3edJapKQQJ0Rm0na)
+Расшифровка значений:
 
-[![asciicast](https://asciinema.org/a/4jpXAZlJEQYWS2UKIfpVAMAAQ.svg)](https://asciinema.org/a/4jpXAZlJEQYWS2UKIfpVAMAAQ)
+added — ключ отсутствовал в первом объекте, но был добавлен во второй
+deleted — ключ был в первом объекте, но отсутствует во втором
+changed — ключ присутствовал и в первом и во втором объектах, но значения отличаются
+unchanged — ключ присутствовал и в первом и во втором объектах с одинаковыми значениями
 
-[![asciicast](https://asciinema.org/a/t0vSwUSpcRiUe39IbKJkUmIJO.svg)](https://asciinema.org/a/t0vSwUSpcRiUe39IbKJkUmIJO)
+К  утилите подлючена библиотека Cli. Настроенные для использования флаги - h и V. Пример использования:
 
-[![asciicast](https://asciinema.org/a/osJD19XEBMQoyPLIvMAb3rhXL.svg)](https://asciinema.org/a/osJD19XEBMQoyPLIvMAb3rhXL)
+Usage: gendiff [-hV]
+  -h, --help      Show this help message and exit.
+  -V, --version   Print version information and exit.
